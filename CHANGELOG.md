@@ -19,6 +19,7 @@ All notable changes to Sourcegraph are documented in this file.
 ### Changed
 
 - Repository search within a version context will link to the revision in the version context. [#10860](https://github.com/sourcegraph/sourcegraph/pull/10860)
+- The styling of the hover overlay was overhauled to never have badges or the close button overlap content while also always indicating whether the overlay is currently pinned. The styling on code hosts was also improved. [#10956](https://github.com/sourcegraph/sourcegraph/pull/10956)
 
 ### Fixed
 

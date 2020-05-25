@@ -31,7 +31,7 @@ window.sgdocs = (() => {
       setTimeout(schemaLinkCheck, 0) // Browser scrolls straight to element without this
     },
 
-    scrollToElement: scrollToElement
+    scrollToElement: scrollToElement,
   }
 
   /**
@@ -124,8 +124,10 @@ window.sgdocs = (() => {
       return
     }
 
-    let branchPrefix = urlPath.match(/(@[\d\w\.]+)/)[0]
-    document.querySelectorAll('#content-nav a').forEach(e => e.setAttribute('href', `/${branchPrefix}${e.getAttribute('href')}`))
+    let branchPrefix = urlPath.match(/(@[\d\w\.-]+)/)[0]
+    document
+      .querySelectorAll('#content-nav a')
+      .forEach(e => e.setAttribute('href', `/${branchPrefix}${e.getAttribute('href')}`))
   }
 
   /**
@@ -163,7 +165,7 @@ window.sgdocs = (() => {
         anchor.addEventListener('click', e => {
           let originalId = e.target.id
           e.target.id = `${originalId}-id-miss`
-          setTimeout(() => e.target.id = originalId, 1000)
+          setTimeout(() => (e.target.id = originalId), 1000)
         })
       })
     })
@@ -178,8 +180,8 @@ window.sgdocs = (() => {
   function gaConversionOnStartSourcegraphCommands() {
     if (window && window.gtag) {
       window.gtag('event', 'conversion', {
-        'send_to': 'AW-868484203/vOYoCOCUj7EBEOuIkJ4D',
-      });
+        send_to: 'AW-868484203/vOYoCOCUj7EBEOuIkJ4D',
+      })
     }
   }
 
@@ -190,5 +192,4 @@ window.sgdocs = (() => {
 
     START_SOURCEGRAPH_COMMAND_SNIPPET.addEventListener('click', gaConversionOnStartSourcegraphCommands)
   }
-
 })()
